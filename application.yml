@@ -2,7 +2,7 @@
   profiles:
     active:
     - dev
----			        # -三个减号位分隔符  实现了同一个文件不同的配置
+---                             # -三个减号位分隔符  实现了同一个文件不同的配置
 spring:
   profiles: dev			# -开发环境
   application:
