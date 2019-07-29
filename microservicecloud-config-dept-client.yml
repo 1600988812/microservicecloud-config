@@ -1,0 +1,84 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---                             # -三个减号位分隔符  实现了同一个文件不同的配置
+
+server:
+  port: 8001                    # -注册中心占用7001端口，冒号后面必须要有空格
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-dept-client
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: org.gjt.mm.mysql.Driver
+      url: jdbc:mysql://localhost:3306/cloudDB01
+      username: root
+      password: zy1600988812
+      dbcp2:
+        min-idle: 5
+        initial-size: 5
+	max-total: 5
+        max-wait-millss:200
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.ps.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-id-address: true
+
+info:
+  app.name: ps-microservicecloud-springcloudconfig01
+  company.name: www.ps.cpm
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+---                             # -三个减号位分隔符  实现了同一个文件不同的配置
+
+server:
+  port: 8001                    # -注册中心占用7001端口，冒号后面必须要有空格
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: org.gjt.mm.mysql.Driver
+      url: jdbc:mysql://localhost:3306/cloudDB02
+      username: root
+      password: zy1600988812
+      dbcp2:
+        min-idle: 5
+        initial-size: 5
+	max-total: 5
+        max-wait-millss:200
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.ps.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-id-address: true
+
+info:
+  app.name: ps-microservicecloud-springcloudconfig02
+  company.name: www.ps.cpm
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+# -请务必保存为UTF-8格式
