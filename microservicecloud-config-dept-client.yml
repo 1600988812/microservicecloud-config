@@ -31,10 +31,10 @@ mybatis:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/
   instance:
     instance-id: dept-8001.com
-    prefer-id-address: true
+    prefer-ip-address: true
 
 info:
   app.name: ps-microservicecloud-springcloudconfig01
